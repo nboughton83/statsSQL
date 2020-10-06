@@ -1,10 +1,10 @@
 import mysql.connector, json, time
 
 db = mysql.connector.connect(
-    host="1.1.1.1,
+    host="192.168.13.6",
     user="perun",
-    password="test",
-    database="test"
+    password="dcsded",
+    database="perun"
     )
 db.autocommit = True
 
@@ -30,8 +30,9 @@ def getCurrentMission(instance):
     return currentMission 
 
 while True:
-    playerCount = getPlayerCount(2)
-    currentMission = getCurrentMission(2)
-    time.sleep(5)
-    print(playerCount)
-    print(currentMission)
+    for i in range(1, 4):
+        playerCount = getPlayerCount(i)
+        currentMission = getCurrentMission(i)
+        time.sleep(5)
+        print(playerCount)
+        print(currentMission)
